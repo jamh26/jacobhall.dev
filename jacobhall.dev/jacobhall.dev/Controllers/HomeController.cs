@@ -1,11 +1,13 @@
 ﻿using jacobhall.dev.Models;
+using MailKit.Net.Smtp;
+using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
+using MimeKit;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace jacobhall.dev.Controllers
 {
@@ -25,7 +27,58 @@ namespace jacobhall.dev.Controllers
 
         public IActionResult Contact()
         {
-            return View();
+            var contactViewModel = new ContactViewModel();
+            contactViewModel.ContactFormEmail = new ContactFormModel();
+
+            var contactOptions = new List<ContactFormOptionsModel>()
+            {
+                new ContactFormOptionsModel { Id = "1", Category = "Category 1"},
+                new ContactFormOptionsModel { Id = "2", Category = "Category 2"}
+            };
+
+            contactViewModel.Categories = new SelectList(contactOptions, "Id", "Category");
+
+            return View("Contact", contactViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Contact(ContactFormModel vm)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var message = new MimeMessage();
+                    message.From.Add(new MailboxAddress("Jacob Hall", "jacob@jamhdigital.com"));
+                    message.To.Add(new MailboxAddress($"{vm.Name}", $"{vm.Email}"));
+                    message.Subject = $"Contact from JacobHall.dev - Category: {vm.Category} - Email: {vm.Email}";
+
+                    message.Body = new TextPart("plain")
+                    {
+                        Text = @$"{vm.Message}"
+                    };
+
+                    using (var client = new SmtpClient())
+                    {
+                        client.Connect("mail.privateemail.com", 587, SecureSocketOptions.StartTls);
+
+                        // Note: only needed if the SMTP server requires authentication
+                        client.Authenticate("jacob@jamhdigital.com", "xxx");
+
+                        client.Send(message);
+                        client.Disconnect(true);
+                    }
+
+                    ModelState.Clear();
+                    ViewBag.Message = "Thank you for Contacting us ";
+                }
+                catch (Exception ex)
+                {
+                    ModelState.Clear();
+                    ViewBag.Message = $" Sorry we are facing Problem here {ex.Message}";
+                }
+            }
+            return View("Index");
         }
 
         public IActionResult Privacy()
