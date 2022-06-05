@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Thank You";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if (ViewBag.Message == null)
+{
+<div>
+    <p>something went wrong</p>
+</div>
+}
+
+@if (ViewBag.Message != null)
+{
+<div>@ViewBag.Message</div>
+}
