@@ -17,15 +17,15 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav ml-auto">
                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active nav-item" : "nav-item")">
                             @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                         </li>
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active nav-item" : "nav-item")">
+                            @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })
+                        </li>
                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active nav-item" : "nav-item")">
                             @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
-                        </li>
-                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Privacy" ? "active nav-item" : "nav-item")">
-                            @Html.ActionLink("Privacy", "Privacy", "Home", new { area = "" }, new { @class = "nav-link" })
                         </li>
                     </ul>
                 </div>
