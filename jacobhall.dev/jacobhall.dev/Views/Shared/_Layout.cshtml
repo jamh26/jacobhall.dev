@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">jacobhall.dev</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -18,25 +18,23 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active nav-item" : "nav-item")">
+                            @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active nav-item" : "nav-item")">
+                            @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Privacy" ? "active nav-item" : "nav-item")">
+                            @Html.ActionLink("Privacy", "Privacy", "Home", new { area = "" }, new { @class = "nav-link" })
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main role="main" class="">
+        @RenderBody()
+    </main>
 
     <footer class="border-top footer text-muted">
         <div class="container">
