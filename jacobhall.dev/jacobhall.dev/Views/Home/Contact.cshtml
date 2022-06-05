@@ -8,7 +8,7 @@
         <div class="text-center">
             <h1 class="display-4">Contact</h1>
             <div class="row ">
-                <div class="col-lg-7 mx-auto">
+                <div class="col-lg-10 mx-auto">
                     <div class="card mt-2 mx-auto p-4 bg-light">
                         <div class="card-body bg-light">
                             <div class="container">
@@ -18,13 +18,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="form_name">Name *</label>
-                                                    <input id="form_name" type="text" name="name" class="form-control" asp-for="ContactFormEmail.Name" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                                                    <input id="form_name" type="text" name="name" class="form-control" asp-for="ContactFormEmail.Name" placeholder="Name *Required*" required="required" data-error="Name is required.">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="form_phone">Phone Number</label>
-                                                    <input id="form_phone" type="text" name="phone" class="form-control" asp-for="ContactFormEmail.Phone" placeholder="Phone Number">
+                                                    <input id="form_phone" type="text" name="phone" class="form-control" asp-for="ContactFormEmail.Phone" placeholder="Phone">
                                                 </div>
                                             </div>
                                         </div>
@@ -32,7 +32,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="form_email">Email *</label>
-                                                    <input id="form_email" type="email" name="email" class="form-control" asp-for="ContactFormEmail.Email" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                                                    <input id="form_email" type="email" name="email" class="form-control" asp-for="ContactFormEmail.Email" placeholder="Email Address *Required*" required="required" data-error="Valid email is required.">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -46,11 +46,11 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="form_message">Message *</label>
-                                                    <textarea id="form_message" name="message" class="form-control" asp-for="ContactFormEmail.Message" placeholder="Write your message here." rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                                                    <textarea id="form_message" name="message" class="form-control" asp-for="ContactFormEmail.Message" placeholder="Please enter your comments here..." rows="4" required="required" data-error="Please, leave us a message."></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <input type="submit" class="btn btn-success btn-send  pt-2 btn-block" value="Send Message">
+                                                <input type="submit" class="btn btn-success btn-send  pt-2" value="Send Message">
                                             </div>
                                         </div>
                                     </div>

@@ -81,7 +81,12 @@ namespace jacobhall.dev.Controllers
                     ViewBag.Message = $" Sorry we are facing Problem here {ex.Message}";
                 }
             }
-            return View("Index");
+            return View("ThankYou");
+        }
+
+        public IActionResult ThankYou()
+        {
+            return View();
         }
 
         public IActionResult Privacy()
