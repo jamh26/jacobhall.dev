@@ -3,6 +3,7 @@ using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MimeKit;
 using System;
@@ -14,10 +15,12 @@ namespace jacobhall.dev.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IConfiguration _config;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IConfiguration config)
         {
             _logger = logger;
+            _config = config;
         }
 
         public IActionResult Index()
@@ -49,7 +52,7 @@ namespace jacobhall.dev.Controllers
                 try
                 {
                     var message = new MimeMessage();
-                    message.From.Add(new MailboxAddress("Jacob Hall", "jacob@jamhdigital.com"));
+                    message.From.Add(new MailboxAddress("Info - JacobHall.dev", _config.GetValue<string>("Smtp:FromAddress")));
                     message.To.Add(new MailboxAddress($"{vm.Name}", $"{vm.Email}"));
                     message.Subject = $"Contact from JacobHall.dev - Category: {vm.Category} - Email: {vm.Email}";
 
@@ -60,10 +63,10 @@ namespace jacobhall.dev.Controllers
 
                     using (var client = new SmtpClient())
                     {
-                        client.Connect("mail.privateemail.com", 587, SecureSocketOptions.StartTls);
+                        client.Connect(_config.GetValue<string>("Smtp:Server"), _config.GetValue<int>("Smtp:Port"), SecureSocketOptions.StartTls);
 
                         // Note: only needed if the SMTP server requires authentication
-                        client.Authenticate("jacob@jamhdigital.com", "xxx");
+                        client.Authenticate(_config.GetValue<string>("Smtp:UserName"), _config.GetValue<string>("Smtp:Password"));
 
                         client.Send(message);
                         client.Disconnect(true);
