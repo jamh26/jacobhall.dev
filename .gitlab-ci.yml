@@ -99,6 +99,9 @@ build:
   # Only one project path can be passed as a parameter to 'dotnet build' command.
   script:
     - 'dotnet build --no-restore'
+  artifacts:
+      paths:
+        - $SOURCE_CODE_PATH/bin/
 
 tests:
   stage: test
