@@ -7,9 +7,25 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.main > .container {
+    margin-top: 56px
+}
+
+.navbar .active .nav-link {
+    color: #E78406
+}
+
+.footer-link .footer-alink {
+    color: #6c757d;
+}
+
+.active .footer-alink {
+    color: #E78406
+}
+
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #1861ac;
 }
 
 .btn-primary {
