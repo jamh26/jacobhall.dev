@@ -52,9 +52,9 @@ namespace jacobhall.dev.Controllers
                 try
                 {
                     var message = new MimeMessage();
-                    message.From.Add(new MailboxAddress("Info - JacobHall.dev", _config.GetValue<string>("Smtp:FromAddress")));
-                    message.To.Add(new MailboxAddress($"{vm.Name}", $"{vm.Email}"));
-                    message.Subject = $"Contact from JacobHall.dev - Category: {vm.Category} - Email: {vm.Email}";
+                    message.From.Add(new MailboxAddress("JacobHall.dev - Contact Form", _config.GetValue<string>("Smtp:FromAddress")));
+                    message.To.Add(new MailboxAddress($"Jacob Hall - Contact Form", _config.GetValue<string>("Smtp:FromAddress")));
+                    message.Subject = $"JacobHall.dev - Name: {vm.Name} - Category: {vm.Category} - Email: {vm.Email}";
 
                     message.Body = new TextPart("plain")
                     {
