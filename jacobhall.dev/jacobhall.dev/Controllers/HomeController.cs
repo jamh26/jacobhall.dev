@@ -73,7 +73,7 @@ namespace jacobhall.dev.Controllers
                     }
 
                     ModelState.Clear();
-                    ViewBag.Message = "Thank you for Contacting us ";
+                    ViewBag.Message = "Thank you for Contacting me, I will reach out to you as soon as I am able.";
                 }
                 catch (Exception ex)
                 {
