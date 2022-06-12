@@ -58,7 +58,11 @@ a {
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
+    padding: 30px;
+    background: rgba( 0, 0, 0, 0.6 );
+    border-radius: 25px;
     bottom: 3rem;
+    /*top: 90px;*/
     z-index: 10;
 }
 
