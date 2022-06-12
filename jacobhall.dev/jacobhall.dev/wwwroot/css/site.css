@@ -15,6 +15,10 @@ a.navbar-brand {
     color: #E78406
 }
 
+.navbar .active {
+    background-color: white;
+}
+
 .footer-link .footer-alink {
     color: #6c757d;
 }
