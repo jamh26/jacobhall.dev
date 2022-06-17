@@ -7,8 +7,8 @@ namespace jacobhall.dev.Models
 {
     public class ContactFormOptionsModel
     {
-        public string Id { get; set; }
+        public string Value { get; set; }
 
-        public string Category { get; set; }
+        public string CategoryText { get; set; }
     }
 }

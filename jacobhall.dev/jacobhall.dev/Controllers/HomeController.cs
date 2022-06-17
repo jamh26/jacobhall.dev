@@ -35,11 +35,13 @@ namespace jacobhall.dev.Controllers
 
             var contactOptions = new List<ContactFormOptionsModel>()
             {
-                new ContactFormOptionsModel { Id = "1", Category = "Category 1"},
-                new ContactFormOptionsModel { Id = "2", Category = "Category 2"}
+                new ContactFormOptionsModel { Value = "Feedback", CategoryText = "Feedback"},
+                new ContactFormOptionsModel { Value = "Opportunities", CategoryText = "Opportunities"},
+                new ContactFormOptionsModel { Value = "Technical", CategoryText = "Technical"},
+                new ContactFormOptionsModel { Value = "Suggestions", CategoryText = "Suggestions"}
             };
 
-            contactViewModel.Categories = new SelectList(contactOptions, "Id", "Category");
+            contactViewModel.Categories = new SelectList(contactOptions, "Value", "CategoryText");
 
             return View("Contact", contactViewModel);
         }
