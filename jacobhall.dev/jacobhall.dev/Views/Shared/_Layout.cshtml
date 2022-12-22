@@ -17,15 +17,24 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active nav-item" : "nav-item")">
-                            @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active nav-item px-2 rounded-3" : "nav-item px-2 rounded-3")">
+                            @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link d-flex align-items-center justify-content-center fw-bold" })
                         </li>
-                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active nav-item" : "nav-item")">
-                            @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active nav-item px-2 rounded-3" : "nav-item px-2 rounded-3")">
+                            @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link d-flex align-items-center justify-content-center fw-bold" })
                         </li>
-                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active nav-item" : "nav-item")">
-                            @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
+                        <li class="nav-item dropdown px-2 rounded-3">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Applications
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item " href="https://gitlab.jacobhall.dev" target="_blank">GitLab</a></li>
+                                <li><a class="dropdown-item" href="https://harbor.jacobhall.dev" target="_blank">Harbor</a></li>
+                            </ul>
+                        </li>
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active nav-item px-2 rounded-3" : "nav-item px-2 rounded-3")">
+                            @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link d-flex align-items-center justify-content-center fw-bold" })
                         </li>
                     </ul>
                 </div>
@@ -41,27 +50,15 @@
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
             <div class="me-5 d-none d-lg-block">
-                <span>Get connected with us on social networks:</span>
+                <span>Get connected with me on social networks:</span>
             </div>
             <!-- Left -->
             <!-- Right -->
             <div>
-                <a href="" class="me-4 text-reset">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="" class="me-4 text-reset">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="" class="me-4 text-reset">
-                    <i class="fab fa-google"></i>
-                </a>
-                <a href="" class="me-4 text-reset">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="" class="me-4 text-reset">
+                <a href="https://www.linkedin.com/in/jacob-hall-47584a235/" target="_blank" class="me-4 text-reset">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="https://github.com/jamh26" target="_blank" class="me-4 text-reset">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
@@ -80,8 +77,8 @@
                             <i class="fas fa-gem me-3"></i>JacobHall.dev
                         </h6>
                         <p>
-                            Here you can use rows and columns to organize your footer content. Lorem ipsum
-                            dolor sit amet, consectetur adipisicing elit.
+                            Experienced software developer and systems engineer with a lifelong interest in technology.
+                            I enjoy the outdoors as much as I can with my fiance and four dogs.
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -109,19 +106,19 @@
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
-                            Useful links
+                            Dev Links
                         </h6>
                         <p>
-                            <a href="#!" class="text-reset">Pricing</a>
+                            <a href="https://gitlab.jacobhall.dev" target="_blank" class="text-reset">GitLab</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Settings</a>
+                            <a href="https://harbor.jacobhall.dev" target="_blank" class="text-reset">Harbor</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Orders</a>
+                            <a href="https://docker.jacobhall.dev" target="_blank" class="text-reset">Portainer</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Help</a>
+                            <a href="https://bookstack.jacobhall.dev" target="_blank" class="text-reset">BookStack</a>
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -131,7 +128,7 @@
                         <h6 class="text-uppercase fw-bold mb-4">
                             Contact
                         </h6>
-                        <p><i class="fas fa-home me-3"></i> Albuquerque, NM, US</p>
+                        <p><i class="fas fa-home me-3"></i> New Mexico, USA</p>
                         <p>
                             <i class="fas fa-envelope me-3"></i>
                             Jacob@JacobHall.dev

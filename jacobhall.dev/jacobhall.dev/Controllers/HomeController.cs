@@ -35,11 +35,13 @@ namespace jacobhall.dev.Controllers
 
             var contactOptions = new List<ContactFormOptionsModel>()
             {
-                new ContactFormOptionsModel { Id = "1", Category = "Category 1"},
-                new ContactFormOptionsModel { Id = "2", Category = "Category 2"}
+                new ContactFormOptionsModel { Value = "Feedback", CategoryText = "Feedback"},
+                new ContactFormOptionsModel { Value = "Opportunities", CategoryText = "Opportunities"},
+                new ContactFormOptionsModel { Value = "Technical", CategoryText = "Technical"},
+                new ContactFormOptionsModel { Value = "Suggestions", CategoryText = "Suggestions"}
             };
 
-            contactViewModel.Categories = new SelectList(contactOptions, "Id", "Category");
+            contactViewModel.Categories = new SelectList(contactOptions, "Value", "CategoryText");
 
             return View("Contact", contactViewModel);
         }
@@ -52,9 +54,9 @@ namespace jacobhall.dev.Controllers
                 try
                 {
                     var message = new MimeMessage();
-                    message.From.Add(new MailboxAddress("Info - JacobHall.dev", _config.GetValue<string>("Smtp:FromAddress")));
-                    message.To.Add(new MailboxAddress($"{vm.Name}", $"{vm.Email}"));
-                    message.Subject = $"Contact from JacobHall.dev - Category: {vm.Category} - Email: {vm.Email}";
+                    message.From.Add(new MailboxAddress("JacobHall.dev - Contact Form", _config.GetValue<string>("Smtp:FromAddress")));
+                    message.To.Add(new MailboxAddress($"Jacob Hall - Contact Form", _config.GetValue<string>("Smtp:FromAddress")));
+                    message.Subject = $"JacobHall.dev - Name: {vm.Name} - Category: {vm.Category} - Email: {vm.Email}";
 
                     message.Body = new TextPart("plain")
                     {

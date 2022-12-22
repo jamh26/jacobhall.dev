@@ -17,35 +17,37 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="form_name">Name *</label>
-                                                        <input id="form_name" type="text" name="name" class="form-control" asp-for="ContactFormEmail.Name" placeholder="Name *Required*" required="required" data-error="Name is required.">
+                                                        <label for="form_name">Name</label>
+                                                        <input id="form_name" type="text" name="name" class="form-control" asp-for="ContactFormEmail.Name" placeholder="(Required)" required="required" data-error="Name is required.">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="form_phone">Phone Number</label>
-                                                        <input id="form_phone" type="text" name="phone" class="form-control" asp-for="ContactFormEmail.Phone" placeholder="Phone">
+                                                        <input id="form_phone" type="text" name="phone" class="form-control" asp-for="ContactFormEmail.Phone" placeholder="(Optional)">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="form_email">Email *</label>
-                                                        <input id="form_email" type="email" name="email" class="form-control" asp-for="ContactFormEmail.Email" placeholder="Email Address *Required*" required="required" data-error="Valid email is required.">
+                                                        <label for="form_email">Email</label>
+                                                        <input id="form_email" type="email" name="email" class="form-control" asp-for="ContactFormEmail.Email" placeholder="(Required)" required="required" data-error="Valid email is required.">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="form_category">Select Category *</label>
-                                                        <select id="form_category" name="category" class="form-control" asp-for="ContactFormEmail.Category" asp-items="@Model.Categories" required="required" data-error="Please select category"></select>
+                                                        <label for="form_category">Select Category</label>
+                                                        <select id="form_category" name="category" class="form-control" asp-for="ContactFormEmail.Category" asp-items="@Model.Categories" required="required" data-error="Please select category">
+                                                            <option value="">--Select--</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label for="form_message">Message *</label>
+                                                        <label for="form_message">Message</label>
                                                         <textarea id="form_message" name="message" class="form-control" asp-for="ContactFormEmail.Message" placeholder="Please enter your comments here..." rows="4" required="required" data-error="Please, leave us a message."></textarea>
                                                     </div>
                                                 </div>
