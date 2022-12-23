@@ -1,5 +1,3 @@
-using System;
-
 namespace jacobhall.dev.Models
 {
     public class ErrorViewModel

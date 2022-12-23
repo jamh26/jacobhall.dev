@@ -81,11 +81,11 @@ namespace jacobhall.dev.Controllers
 
                     string messageExternalBody =
                         @$"Thank you for Contacting me, I will reach out to you as soon as I am able.{Environment.NewLine}" +
-                        $@"{Environment.NewLine}" + 
+                        $@"{Environment.NewLine}" +
                         @$"Please allow 2-3 days for a response.{Environment.NewLine}" +
                         @$"{Environment.NewLine}" +
                         @$"Thank you,{Environment.NewLine}" +
-                        $@"{Environment.NewLine}" + 
+                        $@"{Environment.NewLine}" +
                         @$"-Jacob Hall";
 
                     messageExternal.Body = new TextPart("plain")
