@@ -53,12 +53,12 @@ namespace jacobhall.dev.Controllers
             {
                 try
                 {
-                    var message = new MimeMessage();
-                    message.From.Add(new MailboxAddress("JacobHall.dev - Contact Form", _config.GetValue<string>("Smtp:FromAddress")));
-                    message.To.Add(new MailboxAddress($"Jacob Hall - Contact Form", _config.GetValue<string>("Smtp:FromAddress")));
-                    message.Subject = $"JacobHall.dev - Name: {vm.Name} - Category: {vm.Category} - Email: {vm.Email}";
+                    var messageInternal = new MimeMessage();
+                    messageInternal.From.Add(new MailboxAddress("JacobHall.dev - Contact Form", _config.GetValue<string>("Smtp:FromAddress")));
+                    messageInternal.To.Add(new MailboxAddress($"Jacob Hall - Contact Form", _config.GetValue<string>("Smtp:FromAddress")));
+                    messageInternal.Subject = $"JacobHall.dev - Name: {vm.Name} - Category: {vm.Category} - Email: {vm.Email}";
 
-                    message.Body = new TextPart("plain")
+                    messageInternal.Body = new TextPart("plain")
                     {
                         Text = @$"{vm.Message}"
                     };
@@ -70,7 +70,37 @@ namespace jacobhall.dev.Controllers
                         // Note: only needed if the SMTP server requires authentication
                         client.Authenticate(_config.GetValue<string>("Smtp:UserName"), _config.GetValue<string>("Smtp:Password"));
 
-                        client.Send(message);
+                        client.Send(messageInternal);
+                        client.Disconnect(true);
+                    }
+
+                    var messageExternal = new MimeMessage();
+                    messageExternal.From.Add(new MailboxAddress("JacobHall.dev - Contact Form", _config.GetValue<string>("Smtp:FromAddress")));
+                    messageExternal.To.Add(new MailboxAddress($"{vm.Name}", vm.Email));
+                    messageExternal.Subject = $"JacobHall.dev - Name: {vm.Name} - Category: {vm.Category} - Email: {vm.Email}";
+
+                    string messageExternalBody =
+                        @$"Thank you for Contacting me, I will reach out to you as soon as I am able.{Environment.NewLine}" +
+                        $@"{Environment.NewLine}" + 
+                        @$"Please allow 2-3 days for a response.{Environment.NewLine}" +
+                        @$"{Environment.NewLine}" +
+                        @$"Thank you,{Environment.NewLine}" +
+                        $@"{Environment.NewLine}" + 
+                        @$"-Jacob Hall";
+
+                    messageExternal.Body = new TextPart("plain")
+                    {
+                        Text = messageExternalBody
+                    };
+
+                    using (var client = new SmtpClient())
+                    {
+                        client.Connect(_config.GetValue<string>("Smtp:Server"), _config.GetValue<int>("Smtp:Port"), SecureSocketOptions.StartTls);
+
+                        // Note: only needed if the SMTP server requires authentication
+                        client.Authenticate(_config.GetValue<string>("Smtp:UserName"), _config.GetValue<string>("Smtp:Password"));
+
+                        client.Send(messageExternal);
                         client.Disconnect(true);
                     }
 
