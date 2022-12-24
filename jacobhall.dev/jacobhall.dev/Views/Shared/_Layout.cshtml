@@ -21,11 +21,17 @@
                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active nav-item px-2 rounded-3" : "nav-item px-2 rounded-3")">
                             @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link d-flex align-items-center justify-content-center fw-bold" })
                         </li>
-                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Technology" ? "active nav-item px-2 rounded-3" : "nav-item px-2 rounded-3")">
-                            @Html.ActionLink("Technology", "Technology", "Home", new { area = "" }, new { @class = "nav-link d-flex align-items-center justify-content-center fw-bold" })
-                        </li>
                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active nav-item px-2 rounded-3" : "nav-item px-2 rounded-3")">
                             @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link d-flex align-items-center justify-content-center fw-bold" })
+                        </li>
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Infra" ? "active nav-item px-2 rounded-3" : "nav-item px-2 rounded-3")">
+                            @Html.ActionLink("Infra", "Infra", "Home", new { area = "" }, new { @class = "nav-link d-flex align-items-center justify-content-center fw-bold" })
+                        </li>
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "DevOps" ? "active nav-item px-2 rounded-3" : "nav-item px-2 rounded-3")">
+                            @Html.ActionLink("DevOps", "DevOps", "Home", new { area = "" }, new { @class = "nav-link d-flex align-items-center justify-content-center fw-bold" })
+                        </li>
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "SRE" ? "active nav-item px-2 rounded-3" : "nav-item px-2 rounded-3")">
+                            @Html.ActionLink("SRE", "SRE", "Home", new { area = "" }, new { @class = "nav-link d-flex align-items-center justify-content-center fw-bold" })
                         </li>
                         <li class="nav-item dropdown px-2 rounded-3">
                             <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -101,8 +107,14 @@
                         <p class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active footer-link" : "footer-link")">
                             @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "footer-alink" })
                         </p>
-                        <p class="@(ViewContext.RouteData.Values["Action"].ToString() == "Technology" ? "active footer-link" : "footer-link")">
-                            @Html.ActionLink("Technology", "Technology", "Home", new { area = "" }, new { @class = "footer-alink" })
+                        <p class="@(ViewContext.RouteData.Values["Action"].ToString() == "Infra" ? "active footer-link" : "footer-link")">
+                            @Html.ActionLink("Infrastructure", "Infra", "Home", new { area = "" }, new { @class = "footer-alink" })
+                        </p>
+                        <p class="@(ViewContext.RouteData.Values["Action"].ToString() == "DevOps" ? "active footer-link" : "footer-link")">
+                            @Html.ActionLink("Development Operations", "DevOps", "Home", new { area = "" }, new { @class = "footer-alink" })
+                        </p>
+                        <p class="@(ViewContext.RouteData.Values["Action"].ToString() == "SRE" ? "active footer-link" : "footer-link")">
+                            @Html.ActionLink("Site Reliability Engineering", "SRE", "Home", new { area = "" }, new { @class = "footer-alink" })
                         </p>
                         <p class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active footer-link" : "footer-link")">
                             @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "footer-alink" })
