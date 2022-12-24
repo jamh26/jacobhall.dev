@@ -1,10 +1,14 @@
 ## Introduction
 
-This is a simple pipeline example for a .NET Core application, showing just
-how easy it is to get up and running with .NET development using GitLab.
+This project contains the code for JacobHall.dev
+
+This project uses .NET 7 with Docker support with a simple GitLab pipeline
+with actions for build and test.
 
 # Reference links
 
+- [Live Site](https://www.jacobhall.dev)
+- [Test Site (Internal Only)](https://test.jacobhall.dev)
 - [GitLab CI Documentation](https://docs.gitlab.com/ee/ci/)
 - [.NET Hello World tutorial](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/)
 
