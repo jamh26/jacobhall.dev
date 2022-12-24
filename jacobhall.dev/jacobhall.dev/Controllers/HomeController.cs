@@ -121,6 +121,21 @@ namespace jacobhall.dev.Controllers
             return View();
         }
 
+        public IActionResult Infra()
+        {
+            return View();
+        }
+
+        public IActionResult DevOps()
+        {
+            return View();
+        }
+
+        public IActionResult SRE()
+        {
+            return View();
+        }
+
         public IActionResult About()
         {
             return View();
